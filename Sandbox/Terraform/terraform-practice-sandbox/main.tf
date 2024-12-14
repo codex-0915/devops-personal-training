@@ -4,13 +4,13 @@ provider "aws" {
     region = "us-east-1"
 }
 
-#Resource Block
+# Resource Block
 resource "aws_instance" "app_server" {
 
     ami = "ami-0166fe664262f664c"
-    instance_type = "t2.micro"
+    instance_type = var.ec2_instance_type
 
     tags = {
-        Name = "new-terraform-ec2"
+        Name = var.instance_name
     }
 }
